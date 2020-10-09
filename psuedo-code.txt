@@ -1,0 +1,5 @@
+Store letters in a variable
+Store phrase location in a variable
+Create a missed variable with inital value of 0
+
+Want to make the #overlay display to none when Start Game button is clicked
