@@ -3,3 +3,16 @@ Store phrase location in a variable
 Create a missed variable with inital value of 0
 
 Want to make the #overlay display to none when Start Game button is clicked
+
+getRandomPhraseAsArray ==>
+    Needs to get a string from the phrases array
+    Needs to split that phrase into a new array of characters
+    Needs to return the new array of characters
+
+addPhraseToDisplay ==> 
+    Loops through the array of characters --> phraseAsArray
+    Need to create an li and put the character inside the li
+    Append the li to the #phrase ul
+    Will need to define:
+        ul = #phrase ul
+        li = createElement('li')
