@@ -17,3 +17,11 @@ const phrases = [
     'i love coding',
     'javascript is hard'
 ];
+
+// Chooses phrase and returns it as an array of characters
+// Function idea and inspo credit: rohald89's Github repo: FEWD-TD-unit06
+function getRandomPhraseAsArray(arr) {
+    const randomPhrase = arr[Math.floor(Math.random() * arr.length)];
+    const phraseAsArray = Array.from(randomPhrase);
+    return phraseAsArray;
+}
