@@ -43,7 +43,7 @@ h2 {
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
   font-size: var(--font-size-large);
-  margin: 0;
+  margin: 0 auto;
 }
 
 button {
@@ -71,6 +71,7 @@ button {
 .section {
   width: 100%;
   padding: 10px;
+  text-align: center;
 }
 
 /* Title */
@@ -87,6 +88,7 @@ button {
   width: 65px;
   padding: 20px 1px 0 1px;
   margin-right: 2px;
+  margin-top: 10px;
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
@@ -123,6 +125,10 @@ button {
   font-size: var(--font-size-medium);
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 /* Overlay */
 
 #overlay {
@@ -140,6 +146,7 @@ button {
 
 .title {
   color: #FFF;
+  text-align: center;
 }
 
 .start {
