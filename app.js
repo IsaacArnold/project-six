@@ -1,6 +1,6 @@
 const qwerty = document.querySelector('#qwerty');
 const phrase = document.querySelector('#phrase');
-const missed = 0;
+let missed = 0;
 const startGameButton = document.querySelector('.btn__reset');
 const phraseUl = document.querySelector('#phrase ul');
 
@@ -63,5 +63,12 @@ qwerty.addEventListener('click', (e) => {
         buttonClicked.className = 'chosen';
         buttonClicked.disabled = 'true';
         const letterFound = checkLetter(buttonClicked.textContent);
+        if (letterFound === null) {
+            const tries = document.querySelectorAll('.tries');
+            const heartImg = document.querySelectorAll('.tries img')
+            tries[0].className = '';
+            heartImg[0].src = 'images/lostHeart.png';
+            missed += 1;
+        }
     }
 });
