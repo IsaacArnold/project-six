@@ -1,4 +1,4 @@
-const letters = document.querySelector('#qwerty');
+const qwerty = document.querySelector('#qwerty');
 const phrase = document.querySelector('#phrase');
 const missed = 0;
 const startGameButton = document.querySelector('.btn__reset');
@@ -10,7 +10,7 @@ startGameButton.addEventListener('click', () => {
     const overlayDiv = document.querySelector('#overlay');
     overlayDiv.style.display = 'none';
     const phraseArray = getRandomPhraseAsArray(phrases);
-    console.log(addPhraseToDisplay(phraseArray));
+    addPhraseToDisplay(phraseArray);
 });
 
 // Array of phrases
@@ -45,13 +45,23 @@ function addPhraseToDisplay(arr) {
 }
 // ///////////////////////////////////////////////////////////////
 function checkLetter(button){
-    const phraseLi = phraseUl.children.textContent
+    const phraseLi = document.querySelectorAll('.letter');
     let match = null;
     for (let i = 0; i < phraseLi.length; i++) {
-        if (phraseLi[i] === button.textContent) {
+        if (phraseLi[i].textContent === button) {
             phraseLi[i].className = 'letter show';
             match = button.textContent;
         }
     }
     return match;
 }
+
+qwerty.addEventListener('click', (e) => {
+    letterClicked = document.getElementsByTagName('button');
+    if (e.target.tagName === 'BUTTON') {
+        const buttonClicked = e.target;
+        buttonClicked.className = 'chosen';
+        buttonClicked.disabled = 'true';
+        const letterFound = checkLetter(buttonClicked.textContent);
+    }
+});

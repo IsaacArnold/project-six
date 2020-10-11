@@ -32,3 +32,7 @@ checkLetter ==>
 
             }
         }
+
+Event listener ==>
+    IF the element clicked is a button or IF the button has the 'chosen' class already added = do nothing
+    ELSE add 'chosen' to the button.
