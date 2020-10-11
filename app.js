@@ -3,11 +3,11 @@ const phrase = document.querySelector('#phrase');
 let missed = 0;
 const startGameButton = document.querySelector('.btn__reset');
 const phraseUl = document.querySelector('#phrase ul');
+const overlayDiv = document.querySelector('#overlay');
 
 
 // Removes start screen overlay when Start Game button is clicked
 startGameButton.addEventListener('click', () => {
-    const overlayDiv = document.querySelector('#overlay');
     overlayDiv.style.display = 'none';
     const phraseArray = getRandomPhraseAsArray(phrases);
     addPhraseToDisplay(phraseArray);
@@ -71,4 +71,22 @@ qwerty.addEventListener('click', (e) => {
             missed += 1;
         }
     }
+    checkWin();
 });
+
+function checkWin() {
+    const numLettersWithShow = document.querySelectorAll('.show');
+    const numLettersWithLetters = document.querySelectorAll('.letter');
+    if (numLettersWithShow.length === numLettersWithLetters.length) {
+        overlayDiv.style.display = 'flex';
+        overlayDiv.className = 'win';
+        const h2 = document.querySelector('.title');
+        h2.textContent = 'You guessed the phrase - Congratulations!'
+    }
+    if (missed >= 5) {
+        overlayDiv.style.display = 'flex';
+        overlayDiv.className = 'lose';
+        const h2 = document.querySelector('.title');
+        h2.textContent = "You didn't guess the correct phrase - try again."
+    }
+}

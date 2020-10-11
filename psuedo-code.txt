@@ -36,3 +36,8 @@ checkLetter ==>
 Event listener ==>
     IF the element clicked is a button or IF the button has the 'chosen' class already added = do nothing
     ELSE add 'chosen' to the button.
+
+checkWin ==>
+    Checks if the number of letters with 'show' = number of letters with 'letters'
+    IF they are equal, show the 'win' class overlay
+    ELSE show 'lose' class overlay
