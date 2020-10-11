@@ -10,7 +10,7 @@ startGameButton.addEventListener('click', () => {
     const overlayDiv = document.querySelector('#overlay');
     overlayDiv.style.display = 'none';
     const phraseArray = getRandomPhraseAsArray(phrases);
-    // console.log(addPhraseToDisplay(phraseArray));
+    console.log(addPhraseToDisplay(phraseArray));
 });
 
 // Array of phrases
@@ -42,4 +42,16 @@ function addPhraseToDisplay(arr) {
             li.className = 'space';
         }
     }
+}
+// ///////////////////////////////////////////////////////////////
+function checkLetter(button){
+    const phraseLi = phraseUl.children.textContent
+    let match = null;
+    for (let i = 0; i < phraseLi.length; i++) {
+        if (phraseLi[i] === button.textContent) {
+            phraseLi[i].className = 'letter show';
+            match = button.textContent;
+        }
+    }
+    return match;
 }

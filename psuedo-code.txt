@@ -16,3 +16,19 @@ addPhraseToDisplay ==>
     Will need to define:
         ul = #phrase ul
         li = createElement('li')
+
+checkLetter ==>
+    One parameter - the button clicked for a guess ==> button
+    Create a variable for the ul holding the li elements ==> ul.children
+    Create variable for .letter elements ==> phraseLi
+    Create a match varable ==> match ---> inital value of null
+    Loop through all of the .letter elements
+        for (let i = 0; i < ul.length; i++) {
+            if(li === button) {
+                li.className = 'show';
+                match = button.value;
+                console.log(match);
+            } else {
+
+            }
+        }
