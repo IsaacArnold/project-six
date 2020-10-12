@@ -4,11 +4,14 @@ let missed = 0;
 const startGameButton = document.querySelector('.btn__reset');
 const phraseUl = document.querySelector('#phrase ul');
 const overlayDiv = document.querySelector('#overlay');
+const triesImg = document.querySelectorAll('.tries img');
+
 
 
 // Removes start screen overlay when Start Game button is clicked
 startGameButton.addEventListener('click', () => {
     overlayDiv.style.display = 'none';
+    resetGame();
     const phraseArray = getRandomPhraseAsArray(phrases);
     addPhraseToDisplay(phraseArray);
 });
@@ -65,7 +68,7 @@ qwerty.addEventListener('click', (e) => {
         const letterFound = checkLetter(buttonClicked.textContent);
         if (letterFound === null) {
             const tries = document.querySelectorAll('.tries');
-            const heartImg = document.querySelectorAll('.tries img')
+            const heartImg = document.querySelectorAll('.tries img');
             tries[0].className = '';
             heartImg[0].src = 'images/lostHeart.png';
             missed += 1;
@@ -89,4 +92,25 @@ function checkWin() {
         const h2 = document.querySelector('.title');
         h2.textContent = "You didn't guess the correct phrase - try again."
     }
+}
+
+function resetGame() {
+    const resetButton = document.querySelector('.btn__reset');
+    const letterClicked = document.getElementsByTagName('button');
+    const scoreboardLi = document.querySelectorAll('#scoreboard li');
+    const shownLetter = document.querySelectorAll('.letter .show');
+    if (overlayDiv.className === 'win' || 'lose') {
+        resetButton.textContent = 'Reset Game';
+    }
+    for (let i = 0; i < letterClicked.length; i++) {
+        letterClicked[i].className = '';
+        letterClicked[i].disabled = false;
+    }
+    for (let i = 0; i < scoreboardLi.length; i++) {
+        scoreboardLi[i].className = 'tries';
+        triesImg[i].src = 'images/liveHeart.png';
+    }
+    shownLetter.className = '';
+    phraseUl.textContent = '';
+    missed = 0;
 }
